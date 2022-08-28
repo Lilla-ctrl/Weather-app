@@ -55,6 +55,11 @@ a:hover {
   font-size: 40px;
 }
 
+#icon {
+  max-width: 20%;
+  padding: 5px;
+}
+
 #description:first-letter {
   text-transform: capitalize;
 }
