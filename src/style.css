@@ -54,3 +54,7 @@ a:hover {
 .forecast-emoji {
   font-size: 40px;
 }
+
+#description:first-letter {
+  text-transform: capitalize;
+}
