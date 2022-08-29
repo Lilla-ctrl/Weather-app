@@ -10,6 +10,11 @@ h2 {
   margin: 0;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
 a:hover {
   cursor: pointer;
 }
@@ -53,6 +58,12 @@ a:hover {
 
 .forecast-emoji {
   font-size: 40px;
+}
+
+.current-weather-text .active {
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
 }
 
 #icon {
