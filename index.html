@@ -13,123 +13,97 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container page">
+      <h1>Today's weather</h1>
 
-        <h1>Today's weather</h1>
+      <div class="row">
+        <div class="col-4">
+          <form id="search-form">
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="search-text-input"
+                placeholder="Enter a city!"
+                autofocus="on"
+                autocomplete="off"
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary search-button"
+              id="search-button"
+            >
+              Submit
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary search-button"
+              id="current-location-button"
+            >
+              Current location
+            </button>
+          </form>
+        </div>
+        <div class="col-4">
+          <span class="city-name" id="city">London</span
+          ><img id="icon" src="" alt="" />
+        </div>
+        <div class="col-4">
+          <div class="current-weather-text">
+            <div id="current-date-and-time"></div>
+            <div id="current-temp">
+              <span class="temperature" id="actual-temp"> </span
+              ><a class="active" id="celsius"> °C</a>|<a id="fahrenheit">°F</a>
+            </div>
+            <div id="description"></div>
+            <div>Humidity: <span id="humidity"></span>%</div>
+            <div>Wind: <span id="wind"></span> m/s</div>
+          </div>
+        </div>
+      </div>
 
+      <h2>Forecast</h2>
+
+      <div class="forecast" id="forecast">
         <div class="row">
-            <div class="col">
-                <form id="search-form">
-                    <div class="mb-3">
-                      <input type="text" class="form-control" id="search-text-input" placeholder="Enter a city!" autofocus="on" autocomplete="off">
-                    </div>
-                    <button type="submit" class="btn btn-primary search-button" id="search-button">Submit</button>
-                    <button type="submit" class="btn btn-primary search-button" id="current-location-button">Current location</button>
-                </form>
+          <div class="col-2">
+            <div class="forecast-day"></div>
+            <div class="forecast-icon">
+              <img
+                src="http://openweathermap.org/img/wn/50d@2x.png"
+                width="40"
+              />
             </div>
-            <div class="col city-name">
-            <span id="city"></span><img id="icon" src="" alt="">
+            <div class="forecast-temperature">
+              <span class="forecast-max-temperature">18°</span>
+              <span class="forecast-min-temperature">12°</span>
             </div>
-            <div class="col current-weather-text">
-                <div id="current-date-and-time">    
-                 Sunday, 15:38
-                 </div> 
-                <div id="current-temp">           
-                <span class="temperature" id="actual-temp"> </span><a class="active" id="celsius"> °C</a>|<a id="fahrenheit">°F</a>  
-                </div>
-                <div id="description"></div>
-                <div>Humidity: <span id="humidity"></span>%</div>
-                <div>
-                Wind: <span id="wind"></span> m/s
-                </div>
-            </div>
+          </div>
         </div>
-
-        <h2>Forecast</h2>
-
-    <div class="row">
-        <div class="col">
-            <div class="card forecast-card">
-                <div class="card-body">
-                    <h5 class="card-title forecast-day">Monday</h5>
-                    <p class="forecast-emoji">🌞</p>
-                    <p class="card-text">
-                        <div class="temperature">19°C</div> 
-                        Rain: 15%
-                        <br />
-                        Wind: 19 km/h
-                    </p>                    
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card forecast-card">
-                <div class="card-body">
-                    <h5 class="card-title forecast-day">Tuesday</h5>
-                    <p class="forecast-emoji">🌞</p>
-                    <p class="card-text">
-                        <div class="temperature">19°C</div>
-                        Rain: 15%
-                        <br />
-                        Wind: 19 km/h
-                    </p>                    
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card forecast-card">
-                <div class="card-body">
-                    <h5 class="card-title forecast-day">Wednesday</h5>
-                    <p class="forecast-emoji">🌞</p>
-                    <p class="card-text">
-                        <div class="temperature">19°C</div>
-                        Rain: 15%
-                        <br />
-                        Wind: 19 km/h
-                    </p>                     
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card forecast-card">
-                <div class="card-body">
-                    <h5 class="card-title forecast-day">Thursday</h5>
-                    <p class="forecast-emoji">🌞</p>
-                    <p class="card-text">
-                        <div class="temperature">19°C</div>
-                        Rain: 15%
-                        <br />
-                        Wind: 19 km/h
-                    </p>                     
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card forecast-card">
-                <div class="card-body">
-                    <h5 class="card-title forecast-day">Friday</h5>
-                    <p class="forecast-emoji">🌞</p>                    
-                    <p class="card-text">
-                        <div class="temperature">19°C</div>
-                        Rain: 15%
-                        <br />
-                        Wind: 19 km/h
-                    </p>                     
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-</div>
-</div>
-<script src="src/script.js"></script>
-</body>
+    <a
+      id="signature-link"
+      href="https://github.com/Lilla-ctrl/weather-app"
+      target="_blank"
+      >Open-source code</a
+    >
+    by Lilla Berényi.
+    <script src="src/script.js"></script>
+  </body>
 </html>

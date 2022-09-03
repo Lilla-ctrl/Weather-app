@@ -56,14 +56,32 @@ a:hover {
   font-family: "Noto Sans", sans-serif;
 }
 
-.forecast-emoji {
-  font-size: 40px;
-}
-
 .current-weather-text .active {
   font-weight: bold;
   text-decoration: none;
   color: black;
+}
+
+.forecast {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.forecast-day {
+  font-size: 25px;
+}
+
+.forecast-max-temperature {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.forecast-min-temperature {
+  font-size: 10px;
+}
+
+.signature-link {
+  text-align: center;
 }
 
 #icon {
@@ -73,4 +91,9 @@ a:hover {
 
 #description:first-letter {
   text-transform: capitalize;
+}
+
+#signature-link {
+  font-weight: bold;
+  color: #126e82;
 }
