@@ -39,7 +39,7 @@ function displayForecast(response) {
       `<div class="col-2">
           <div class="forecast-day">${day}</div>
           <div class="forecast-icon">
-          <img src="http://openweathermap.org/img/wn/50d@2x.png"/ width="40">
+          <img src="https://openweathermap.org/img/wn/50d@2x.png"/ width="40">
           </div>
           <div class="forecast-temperature">18° 12°</div>
     </div>`;
@@ -52,7 +52,7 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = "a43564c91a6c605aeb564c9ed02e3858";
-  let apiForecastUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
+  let apiForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
   axios.get(apiForecastUrl).then(displayForecast);
 }
 
@@ -71,7 +71,7 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
