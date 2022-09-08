@@ -30,8 +30,8 @@
     <div class="container page">
       <h1>Today's weather</h1>
 
-      <div class="row">
-        <div class="col-4">
+      <div class="row today-weather">
+        <div class="col-4 box-1">
           <form id="search-form">
             <div class="mb-3">
               <input
@@ -59,11 +59,11 @@
             </button>
           </form>
         </div>
-        <div class="col-4">
-          <span class="city-name" id="city">London</span
+        <div class="col-4 box-2">
+          <span class="city-name" id="city"></span
           ><img id="icon" src="" alt="" />
         </div>
-        <div class="col-4">
+        <div class="col-4 box-3">
           <div class="current-weather-text">
             <div id="current-date-and-time"></div>
             <div id="current-temp">
@@ -75,35 +75,37 @@
             <div>Wind: <span id="wind"></span> m/s</div>
           </div>
         </div>
-      </div>
 
-      <h2>Forecast</h2>
+        <h2>Forecast</h2>
 
-      <div class="forecast" id="forecast">
-        <div class="row">
-          <div class="col-2">
-            <div class="forecast-day"></div>
-            <div class="forecast-icon">
-              <img
-                src="http://openweathermap.org/img/wn/50d@2x.png"
-                width="40"
-              />
-            </div>
-            <div class="forecast-temperature">
-              <span class="forecast-max-temperature">18°</span>
-              <span class="forecast-min-temperature">12°</span>
+        <div class="forecast" id="forecast">
+          <div class="row">
+            <div class="col-2">
+              <div class="forecast-day"></div>
+              <div class="forecast-icon">
+                <img
+                  src="http://openweathermap.org/img/wn/50d@2x.png"
+                  width="40"
+                />
+              </div>
+              <div class="forecast-temperature">
+                <span class="forecast-max-temperature">18°</span>
+                <span class="forecast-min-temperature">12°</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <a
-      id="signature-link"
-      href="https://github.com/Lilla-ctrl/weather-app"
-      target="_blank"
-      >Open-source code</a
-    >
-    by Lilla Berényi.
+    <div class="signature">
+      <a
+        id="signature-link"
+        href="https://github.com/Lilla-ctrl/weather-app"
+        target="_blank"
+        >Open-source code</a
+      >
+      by Lilla Berényi.
+    </div>
     <script src="src/script.js"></script>
   </body>
 </html>

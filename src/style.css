@@ -2,11 +2,15 @@ h1,
 h2 {
   text-align: center;
   font-family: "Lobster Two", cursive;
-  font-size: 70px;
   color: #126e82;
 }
 
+h1 {
+  font-size: 70px;
+}
+
 h2 {
+  font-size: 60px;
   margin: 0;
 }
 
@@ -24,6 +28,10 @@ a:hover {
   border: 5px solid #126e82;
   border-radius: 3%;
   max-width: 80%;
+}
+
+.today-weather {
+  display: flex;
 }
 
 .search-button {
@@ -45,13 +53,6 @@ a:hover {
 
 .current-weather-text {
   font-size: 20px;
-  text-align: center;
-  font-family: "Noto Sans", sans-serif;
-}
-
-.forecast-card {
-  background: #d8e3e7;
-  border: none;
   text-align: center;
   font-family: "Noto Sans", sans-serif;
 }
@@ -80,8 +81,8 @@ a:hover {
   font-size: 10px;
 }
 
-.signature-link {
-  text-align: center;
+.signature {
+  font-size: 15px;
 }
 
 #icon {
