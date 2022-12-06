@@ -20,57 +20,101 @@ let currentDateAndTime = document.querySelector("#current-date-and-time");
 currentDateAndTime.innerHTML = `${day}, ${hour}:${minute}`;
 
 function displayForecast(response) {
-  let forecastDayElementTwo = document.querySelector(".forecast-day");
-  forecastDayElementTwo.innerHTML = `${formatDay(response.data.daily[0].dt)}`;
+  let forecastDayElementOne = document.querySelector("#day-one");
+  forecastDayElementOne.innerHTML = `${formatDay(response.data.daily[1].time)}`;
 
-  // let forecastDayElementThree = document.querySelector("#day-three");
-  // forecastDayElementThree.innerHTML = `${formatDay(response.data.list[2].dt)}`;
+  let forecastDayElementTwo = document.querySelector("#day-two");
+  forecastDayElementTwo.innerHTML = `${formatDay(response.data.daily[2].time)}`;
 
-  // let forecastDayElementFour = document.querySelector("#day-four");
-  // forecastDayElementFour.innerHTML = `${formatDay(response.data.list[3].dt)}`;
+  let forecastDayElementThree = document.querySelector("#day-three");
+  forecastDayElementThree.innerHTML = `${formatDay(
+    response.data.daily[3].time
+  )}`;
 
-  // let forecastDayElementFive = document.querySelector("#day-five");
-  // forecastDayElementFive.innerHTML = `${formatDay(response.data.list[4].dt)}`;
+  let forecastDayElementFour = document.querySelector("#day-four");
+  forecastDayElementFour.innerHTML = `${formatDay(
+    response.data.daily[4].time
+  )}`;
 
-  // let forecastDayElementSix = document.querySelector("#day-six");
-  // forecastDayElementSix.innerHTML = `${formatDay(response.data.list[5].dt)}`;
+  let forecastDayElementFive = document.querySelector("#day-five");
+  forecastDayElementFive.innerHTML = `${formatDay(
+    response.data.daily[5].time
+  )}`;
 
-  let temperatureElementOne = document.querySelector("#day-one-temp");
-  temperatureElementOne.innerHTML = `${Math.round(
-    response.data.daily[0].temperature.day
-  )}°`;
-
-  let temperatureElementTwo = document.querySelector("#day-two-temp");
-  temperatureElementTwo.innerHTML = `${Math.round(
-    response.data.daily[1].temperature.day
-  )}°`;
-
-  let temperatureElementThree = document.querySelector("#day-three-temp");
-  temperatureElementThree.innerHTML = `${Math.round(
-    response.data.daily[2].temperature.day
-  )}°`;
-
-  let temperatureElementFour = document.querySelector("#day-four-temp");
-  temperatureElementFour.innerHTML = `${Math.round(
-    response.data.daily[3].temperature.day
-  )}°`;
-
-  let temperatureElementFive = document.querySelector("#day-five-temp");
-  temperatureElementFive.innerHTML = `${Math.round(
-    response.data.daily[4].temperature.day
-  )}°`;
-
-  let temperatureElementSix = document.querySelector("#day-six-temp");
-  temperatureElementSix.innerHTML = `${Math.round(
-    response.data.daily[5].temperature.day
-  )}°`;
+  let forecastDayElementSix = document.querySelector("#day-six");
+  forecastDayElementSix.innerHTML = `${formatDay(response.data.daily[6].time)}`;
 
   let iconElementOne = document.querySelector("#day-one-icon");
   iconElementOne.setAttribute(
     "src",
     `
-    http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[0].condition.icon}.png`
+    https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[1].condition.icon}.png`
   );
+
+  let iconElementTwo = document.querySelector("#day-two-icon");
+  iconElementTwo.setAttribute(
+    "src",
+    `
+    https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[2].condition.icon}.png`
+  );
+
+  let iconElementThree = document.querySelector("#day-three-icon");
+  iconElementThree.setAttribute(
+    "src",
+    `
+    https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[3].condition.icon}.png`
+  );
+
+  let iconElementFour = document.querySelector("#day-four-icon");
+  iconElementFour.setAttribute(
+    "src",
+    `
+    https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[4].condition.icon}.png`
+  );
+
+  let iconElementFive = document.querySelector("#day-five-icon");
+  iconElementFive.setAttribute(
+    "src",
+    `
+    https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[5].condition.icon}.png`
+  );
+
+  let iconElementSix = document.querySelector("#day-six-icon");
+  iconElementSix.setAttribute(
+    "src",
+    `
+    https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[6].condition.icon}.png`
+  );
+
+  let temperatureElementOne = document.querySelector("#day-one-temp");
+  temperatureElementOne.innerHTML = `${Math.round(
+    response.data.daily[1].temperature.day
+  )}°`;
+
+  let temperatureElementTwo = document.querySelector("#day-two-temp");
+  temperatureElementTwo.innerHTML = `${Math.round(
+    response.data.daily[2].temperature.day
+  )}°`;
+
+  let temperatureElementThree = document.querySelector("#day-three-temp");
+  temperatureElementThree.innerHTML = `${Math.round(
+    response.data.daily[3].temperature.day
+  )}°`;
+
+  let temperatureElementFour = document.querySelector("#day-four-temp");
+  temperatureElementFour.innerHTML = `${Math.round(
+    response.data.daily[4].temperature.day
+  )}°`;
+
+  let temperatureElementFive = document.querySelector("#day-five-temp");
+  temperatureElementFive.innerHTML = `${Math.round(
+    response.data.daily[5].temperature.day
+  )}°`;
+
+  let temperatureElementSix = document.querySelector("#day-six-temp");
+  temperatureElementSix.innerHTML = `${Math.round(
+    response.data.daily[6].temperature.day
+  )}°`;
 }
 
 function getForecast(coordinates) {
@@ -139,7 +183,7 @@ function formatDay(timestamp) {
 function displayTemperature(response) {
   celsiusTemp = response.data.temperature.current;
   let city = document.querySelector("#city");
-  city.innerHTML = response.data.name;
+  city.innerHTML = response.data.city;
   let temperatureElement = document.querySelector("#actual-temp");
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   let descriptionElement = document.querySelector("#description");
