@@ -131,55 +131,6 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-//function displayForecast(response) {
-//   let forecast = response.data.list;
-//   let forecastElement = document.querySelector("#forecast");
-
-//   let forecastHTML = `<div class="row">`;
-//   // let days = [
-//   //   "Monday",
-//   //   "Tuesday",
-//   //   "Wednesday",
-//   //   "Thursday",
-//   //   "Friday",
-//   //   "Saturday",
-//   // ];
-
-//   forecast.forEach(function (forecastDay, index) {
-//     if (index < 6) {
-//       forecastHTML =
-//         forecastHTML +
-//         `<div class="col-2">
-//           <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
-//           <div class="forecast-icon">
-//           ${index}
-//           <img src="https://openweathermap.org/img/wn/${
-//             forecastDay.weather[0].icon
-//           }@2x.png"/ width="40">
-//           </div>
-//           <div class="forecast-temperature">
-//           <span class="forecast-max-temp">${Math.round(
-//             forecastDay.main.temp_max
-//           )}</span
-//           <span class="forecast-min-temp"> ${Math.round(
-//             forecastDay.main.temp_min
-//           )}</span>
-//           </div>
-//     </div>`;
-//     }
-//   });
-
-//   forecastHTML = forecastHTML + `</div>`;
-
-//   forecastElement.innerHTML = forecastHTML;
-// }
-
-// function getForecast(coordinates) {
-//   let apiKey = "a43564c91a6c605aeb564c9ed02e3858";
-//   let apiForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
-//   axios.get(apiForecastUrl).then(displayForecast);
-// }
-
 function displayTemperature(response) {
   celsiusTemp = response.data.temperature.current;
   let city = document.querySelector("#city");
@@ -241,3 +192,21 @@ fahrenheitLink.addEventListener("click", showFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsius);
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+function searchLocation(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  // console.log(latitude);
+  // console.log(longitude);
+  let apiKey = "3et61975bb6d4a4foabfddbded4a0a8e";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
