@@ -146,7 +146,7 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.description);
 
@@ -201,12 +201,12 @@ function getCurrentLocation(event) {
 function searchLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  // console.log(latitude);
-  // console.log(longitude);
   let apiKey = "3et61975bb6d4a4foabfddbded4a0a8e";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
-let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", getCurrentLocation);
+window.onload = getCurrentLocation;
+
+// let currentLocationButton = document.querySelector("#current-location-button");
+// currentLocationButton.addEventListener("click", getCurrentLocation);
